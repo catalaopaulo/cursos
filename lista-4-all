@@ -1,0 +1,496 @@
+#Lista 4
+
+#Ex1
+#Implemente a função pot que recebe 2 argumentos dados pelo utilizador e
+#devolve a potência entre ambos. Ex: pot(2,3) = 23=8
+
+'''
+def potencia(base, exp):
+    #return base ** exp
+    #2^3 = 1 * 2 * 2 * 2
+
+    mul = 1
+    #conta = 1
+    #while conta <= exp:
+    #    mul = mul * base
+    #    conta = conta + 1
+
+    for conta in range(exp): 
+        mul = mul * base
+
+
+    return mul
+
+
+########## SCRIPT INICIAL
+base = int(input("Qual é a base? "))
+exp = int(input("Qual o expoente? "))
+
+resposta = pot(base, exp)
+print(f"{base} levantado a {exp} é {resposta}")
+'''
+
+
+
+#Ex2
+#Dado um valor inteiro positivo, determine a função fatorial.
+'''
+def fatorial(num):
+    mul = 1
+    while num > 1:
+        mul = mul * num
+        num = num - 1
+
+    return mul
+
+
+#################
+num = 0
+while num < 1:
+    num = input("Insira 1 nº positivo: ")
+    if num.isnumeric():
+        num = int(num)
+    else:
+        num = 0
+    
+resposta = fatorial(num)
+print(f"O fatorial de {num} é {resposta}")
+'''
+
+
+
+#Ex3
+#Dados 2 valores inteiros m e n, diferentes de zero, implemente uma função que determine o máximo divisor comum entre eles.
+#Ex: mdc(24, 16) = 8, ou seja, 8 é o maior inteiro possível que divide ambos.
+'''
+#D24 = {1,2,3,4,6,8,12,24}
+#D12 = {1,2,3,4,6,12}
+#mdc(24,12) = 12 (24 % x == 0 and 12 % x == 0)
+
+def mdc (v1,v2)
+    menor = min(v1,v2) #Quem é o menor dos dois?
+
+    while menor > 0
+        if (v1 % menor ==) and (v2 % menor ==)
+            return menor
+
+        menor = menor - 1 
+
+
+#outra forma Ex3
+v1 = int(input("Insira um valor positivo: "))
+v2 = int(input("Insira outro valor positivo: "))
+
+resp = mdc(v1,v2)
+print(f"O mdc ({v1},{v2}) é igual a {resp}")
+
+
+menor = min(v1,v2) ##Quem é o menor dos dois?
+print("O MENOR É ", menor)
+         
+x = 1
+while x <= menor:
+    if v1 % x == 0 and v2 % x == 0:
+        mdc = x
+'''
+
+#Ex4
+#Escreva uma função que dado um valor n, determine a soma dos seus divisores.
+#Se o valor inserido for 0 deve devolver 0
+
+'''
+def somar(num):
+    soma = 0
+    x = 1
+    while x <= num: #vamos ver se x é divisor do num
+        if num % x == 0: #resto da divisao de num por x da 0
+            soma = soma + x
+
+        x = x + 1
+
+    return soma
+
+############################################
+x = int(input("Insira 1 valor positivo: "))
+resp = somar(x)
+print("A soma de todos os divisores de {x} é {resp}")
+
+
+#####
+x = int(input("Insira um valor positivo: "))
+resp = somar(x)
+print("A soma de tods os os divisores de {x} é {resp}")
+'''
+
+
+#Ex5
+#Recorrendo a funções, determine se um dado número n é primo ou não. Se o número for inferior a 2 deve,
+#devolver “Número inválido para verificação. Insira valor superior ou igual a 2”.
+
+'''
+def verprimo(n):
+    from math import ceil, sqrt
+    
+    ndiv = 2 # 1 e proprio n
+    x = 2
+    limite = ceil(sqrt(n))+1 ##inteiro acima da raiz quadrada do n
+
+#    while x < limite:
+#        if n % x == 0: #x é divisor de n -> encontra o 3º divisor
+#            return "Falso"
+#
+#        x = x+1
+    for x in range(2,limite):
+        if n % x == 0: #x é divisor de n -> encontra o 3º divisor
+            return "Falso"
+    
+    return "Verdadeiro"
+    
+#############################################
+
+n=0
+while n < 2:
+    n=int(input("Insira um valor superior a 1:\n"))
+
+resp = verprimo(n) #verdade ou falso
+print(f"{n} é primo? ", resp)
+'''
+
+
+
+
+#Ex6
+#Escreva uma função que dado um número n, verifique se este é triangular.
+#Um nº n diz-se triangular se existir um outro número, m, tal que n=1+2+3+…+m.
+#A função deverá devolver True se n é triangular e False se n for 0.
+
+
+'''
+#10 -> 1+2+3+4= 10   m=4 => 10 é triangular
+#15 -> 1+2+3+4+5 = 15  
+
+def triangular(n):
+
+    soma = 0
+    x=1
+    while soma < n:       #enquanto a soma não ultrapassar ou igual ao n
+        soma = soma + x   #junta o valor de x à soma
+        x = x + 1         #passa ao proximo valor de x
+
+    #porque parou o ciclo?
+    #1: pq soma == n
+    if soma == n:
+        return "Verdadeiro" # soma == n entao n é triangular
+    #2: pq soma > n
+    else:
+        return "Falso"
+
+##################################################
+n=0
+while n < 1:
+    n=int(input("Insira um valor positivo:\n"))
+
+resp = triangular(n) #Verdadeiro ou Falso
+print(f"{n} é triangular? {resp}")
+'''
+
+
+
+
+
+#Ex7
+#Implemente uma função para cálculo do fatorial de forma recursiva.
+
+
+'''
+def fat(num):
+    if num == 0:
+        return 1
+
+    else:
+        return num * fat(num - 1)
+
+
+#####
+
+num = -1
+while num < 0:
+    num = int(input("Insira valor nulo ou positivo:"))
+
+resp = fat(num)
+print(f"O fatorial de {num} é {resp}")
+'''
+
+
+
+
+
+
+
+#Ex8
+#Implemente uma função, de forma recursiva, o cálculo de xy
+
+'''
+def pot(base, exp):
+    if exp == 1:
+        return base
+    else:
+        return base * pot(base, exp-1)  
+
+
+#########################################
+base = int(input("Insira valor para a base:"))
+exp = int(input("Insira valor para o expoente:"))
+
+resp = pot(base, exp)
+print(f"{base} levantado a {exp} é {resp}")
+'''
+
+
+#Lista 4
+
+#Ex1
+#Implemente a função pot que recebe 2 argumentos dados pelo utilizador e
+#devolve a potência entre ambos. Ex: pot(2,3) = 23=8
+
+'''
+def potencia(base, exp):
+    #return base ** exp
+    #2^3 = 1 * 2 * 2 * 2
+
+    mul = 1
+    #conta = 1
+    #while conta <= exp:
+    #    mul = mul * base
+    #    conta = conta + 1
+
+    for conta in range(exp): 
+        mul = mul * base
+
+
+    return mul
+
+
+########## SCRIPT INICIAL
+base = int(input("Qual é a base? "))
+exp = int(input("Qual o expoente? "))
+
+resposta = pot(base, exp)
+print(f"{base} levantado a {exp} é {resposta}")
+'''
+
+
+
+#Ex2
+#Dado um valor inteiro positivo, determine a função fatorial.
+'''
+def fatorial(num):
+    mul = 1
+    while num > 1:
+        mul = mul * num
+        num = num - 1
+
+    return mul
+
+
+#################
+num = 0
+while num < 1:
+    num = input("Insira 1 nº positivo: ")
+    if num.isnumeric():
+        num = int(num)
+    else:
+        num = 0
+    
+resposta = fatorial(num)
+print(f"O fatorial de {num} é {resposta}")
+'''
+
+
+
+#Ex3
+#Dados 2 valores inteiros m e n, diferentes de zero, implemente uma função que determine o máximo divisor comum entre eles.
+#Ex: mdc(24, 16) = 8, ou seja, 8 é o maior inteiro possível que divide ambos.
+'''
+#D24 = {1,2,3,4,6,8,12,24}
+#D12 = {1,2,3,4,6,12}
+#mdc(24,12) = 12 (24 % x == 0 and 12 % x == 0)
+
+def mdc (v1,v2)
+    menor = min(v1,v2) #Quem é o menor dos dois?
+
+    while menor > 0
+        if (v1 % menor ==) and (v2 % menor ==)
+            return menor
+
+        menor = menor - 1 
+
+
+#outra forma Ex3
+v1 = int(input("Insira um valor positivo: "))
+v2 = int(input("Insira outro valor positivo: "))
+
+resp = mdc(v1,v2)
+print(f"O mdc ({v1},{v2}) é igual a {resp}")
+
+
+menor = min(v1,v2) ##Quem é o menor dos dois?
+print("O MENOR É ", menor)
+         
+x = 1
+while x <= menor:
+    if v1 % x == 0 and v2 % x == 0:
+        mdc = x
+'''
+
+#Ex4
+#Escreva uma função que dado um valor n, determine a soma dos seus divisores.
+#Se o valor inserido for 0 deve devolver 0
+
+'''
+def somar(num):
+    soma = 0
+    x = 1
+    while x <= num: #vamos ver se x é divisor do num
+        if num % x == 0: #resto da divisao de num por x da 0
+            soma = soma + x
+
+        x = x + 1
+
+    return soma
+
+############################################
+x = int(input("Insira 1 valor positivo: "))
+resp = somar(x)
+print("A soma de todos os divisores de {x} é {resp}")
+
+
+#####
+x = int(input("Insira um valor positivo: "))
+resp = somar(x)
+print("A soma de tods os os divisores de {x} é {resp}")
+'''
+
+
+#Ex5
+#Recorrendo a funções, determine se um dado número n é primo ou não. Se o número for inferior a 2 deve,
+#devolver “Número inválido para verificação. Insira valor superior ou igual a 2”.
+
+'''
+def verprimo(n):
+    from math import ceil, sqrt
+    
+    ndiv = 2 # 1 e proprio n
+    x = 2
+    limite = ceil(sqrt(n))+1 ##inteiro acima da raiz quadrada do n
+
+#    while x < limite:
+#        if n % x == 0: #x é divisor de n -> encontra o 3º divisor
+#            return "Falso"
+#
+#        x = x+1
+    for x in range(2,limite):
+        if n % x == 0: #x é divisor de n -> encontra o 3º divisor
+            return "Falso"
+    
+    return "Verdadeiro"
+    
+#############################################
+
+n=0
+while n < 2:
+    n=int(input("Insira um valor superior a 1:\n"))
+
+resp = verprimo(n) #verdade ou falso
+print(f"{n} é primo? ", resp)
+'''
+
+
+
+
+#Ex6
+#Escreva uma função que dado um número n, verifique se este é triangular.
+#Um nº n diz-se triangular se existir um outro número, m, tal que n=1+2+3+…+m.
+#A função deverá devolver True se n é triangular e False se n for 0.
+
+
+'''
+#10 -> 1+2+3+4= 10   m=4 => 10 é triangular
+#15 -> 1+2+3+4+5 = 15  
+
+def triangular(n):
+
+    soma = 0
+    x=1
+    while soma < n:       #enquanto a soma não ultrapassar ou igual ao n
+        soma = soma + x   #junta o valor de x à soma
+        x = x + 1         #passa ao proximo valor de x
+
+    #porque parou o ciclo?
+    #1: pq soma == n
+    if soma == n:
+        return "Verdadeiro" # soma == n entao n é triangular
+    #2: pq soma > n
+    else:
+        return "Falso"
+
+##################################################
+n=0
+while n < 1:
+    n=int(input("Insira um valor positivo:\n"))
+
+resp = triangular(n) #Verdadeiro ou Falso
+print(f"{n} é triangular? {resp}")
+'''
+
+
+
+
+
+#Ex7
+#Implemente uma função para cálculo do fatorial de forma recursiva.
+
+
+'''
+def fat(num):
+    if num == 0:
+        return 1
+
+    else:
+        return num * fat(num - 1)
+
+
+#####
+
+num = -1
+while num < 0:
+    num = int(input("Insira valor nulo ou positivo:"))
+
+resp = fat(num)
+print(f"O fatorial de {num} é {resp}")
+'''
+
+
+
+
+
+
+
+#Ex8
+#Implemente uma função, de forma recursiva, o cálculo de xy
+
+'''
+def pot(base, exp):
+    if exp == 1:
+        return base
+    else:
+        return base * pot(base, exp-1)  
+
+
+#########################################
+base = int(input("Insira valor para a base:"))
+exp = int(input("Insira valor para o expoente:"))
+
+resp = pot(base, exp)
+print(f"{base} levantado a {exp} é {resp}")
+'''
