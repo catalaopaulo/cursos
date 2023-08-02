@@ -1,0 +1,208 @@
+##Ficha de exercícios nº 4
+
+#Ex1
+#
+'''
+def pot(base, exp):
+    #return base ** exp
+    #2^3 = 1 * 2 * 2 * 2
+
+    mul = 1
+    #conta = 1
+    #while conta <= exp:
+    #    mul = mul * base
+    #    conta = conta + 1
+
+    for conta in range(exp): 
+        mul = mul * base
+
+
+    return mul
+
+
+########## SCRIPT INICIAL
+base = int(input("Qual é a base? "))
+exp = int(input("Qual o expoente? "))
+
+resposta = pot(base, exp)
+print(f"{base} levantado {exp} é {resposta}")
+'''
+#Ex2
+'''
+def fatorial(num):
+    mul = 1
+    while num > 1:
+        mul = mul * num
+        num = num - 1
+
+    return mul
+
+
+#################
+num = 0
+while num < 1:
+    num = input("Insira 1 nº positivo: ")
+    if num.isnumeric():
+        num = int(num)
+    else:
+        num = 0
+    
+resposta = fatorial(num)
+print(f"O fatorial de {num} é {resposta}")
+'''
+#Ex3
+'''
+def mdc(v1, v2):
+    menor = min(v1,v2) ##Quem é o menor dos 2?
+
+    while menor > 0: 
+        if (v1 % menor == 0) and (v2 % menor == 0):
+            return menor
+
+        menor = menor - 1
+
+    
+###################################################
+#D24 = {1,2,3,4,6,8,12,24}
+#D12 = {1,2,3,4,6,12}
+#mdc(24,12) = 12    (24 % X == 0 and 12 % X == 0)
+
+v1 = int(input("Insira 1 valor positivo: "))
+v2 = int(input("Insira outro valor positivo: "))
+
+resp = mdc(v1,v2)
+print(f"O mdc({v1},{v2})={resp}")
+'''
+#Ex4
+'''
+def somar(num):
+    soma = 0
+    x = 1
+    while x <= num: #vamos ver se x é divisor do num
+        if num % x == 0: #resto da divisao de num por x da 0
+            soma = soma + x
+
+        x = x + 1
+
+    return soma
+
+############################################
+x = int(input("Insira 1 valor positivo: "))
+resp = somar(x)
+print("A soma de todos os divisores de {x} é {resp}")
+'''
+
+
+##### OUTRA RESOLUÇÃO
+'''
+def div(n,divisor):
+    return n%divisor==0  #True ou então False
+
+
+#################################
+n=int(input("Insira um valor:\n"))
+
+divisor=1
+soma=0
+while divisor <= n:
+    if div(n, divisor):
+        soma=soma+divisor
+
+    divisor=divisor+1
+
+print("A soma dos divisores de {} é {}".format(n,soma))
+'''
+
+#Ex5
+'''
+def verprimo(n):
+    from math import ceil, sqrt
+    
+    ndiv = 2 # 1 e proprio n
+    x = 2
+    limite = ceil(sqrt(n))+1 ##inteiro acima da raiz quadrada do n
+
+#    while x < limite:
+#        if n % x == 0: #x é divisor de n -> encontra o 3º divisor
+#            return "Falso"
+#
+#        x = x+1
+    for x in range(2,limite):
+        if n % x == 0: #x é divisor de n -> encontra o 3º divisor
+            return "Falso"
+    
+    return "Verdadeiro"
+    
+#############################################
+
+n=0
+while n < 2:
+    n=int(input("Insira um valor superior a 1:\n"))
+
+resp = verprimo(n) #verdade ou falso
+print(f"{n} é primo? ", resp)
+'''
+#Ex6
+'''
+#10 -> 1+2+3+4= 10   m=4 => 10 é triangular
+#12 -> 1+2+3+4+5 =15  
+
+def triangular(n):
+
+    soma = 0
+    x=1
+    while soma < n: #enquanto a soma não ultrapassar ou igual ao n
+        soma = soma + x #junta o valor de x à soma
+        x = x + 1 #passa ao proximo valor de x
+
+    #porque parou o ciclo?
+    #1: pq soma == n
+    if soma == n:
+        return "Verdadeiro" # soma == n entao n é triangular
+    #2: pq soma > n
+    else:
+        return "Falso"
+
+##################################################
+n=0
+while n < 1:
+    n=int(input("Insira um valor positivo:\n"))
+
+resp = triangular(n) #Verdadeiro ou Falso
+print(f"{n} é triangular? {resp}")
+'''
+
+#Ex7
+'''
+def fat(num):
+    if num == 0:
+        return 1
+
+    else:
+        return num * fat(num - 1)
+
+
+#####
+
+num = -1
+while num < 0:
+    num = int(input("Insira valor nulo ou positivo:"))
+
+resp = fat(num)
+print(f"O fatorial de {num} é {resp}")
+'''
+#Ex8
+
+def pot(base, exp):
+    if exp == 1:
+        return base
+    else:
+        return base * pot(base, exp-1)  
+
+
+#########################################
+base = int(input("Insira valor para a base:"))
+exp = int(input("Insira valor para o expoente:"))
+
+resp = pot(base, exp)
+print(f"{base} levantado a {exp} é {resp}")
