@@ -1,0 +1,176 @@
+[13:37, 02/08/2023] Henriqueta: #LISTA 1 - Atividade de aquisição de competências I
+
+#Ex1
+#Ler um nome do STDIN e voltar a escrevê-lo no STDOUT.
+escrever("Escreva o seu nome: ")
+ler(nome)
+
+escrever("O nome que escreveu foi ", nome)
+
+
+#Ex2
+#Ler um nome e uma idade do STDIN e devolver como resposta a frase em português:
+#“O seu nome é X e tem Y anos de idade!”, onde X e Y devem ser substituídos pelo nome e idade lidos, respetivamente.
+escrever("Insira o seu nome: ")
+ler(nome)
+escrever("Insira a sua idade: ")
+ler(idade)
+
+escrever("O seu nome é ", nome, " e tem ", idade "anos de idade!")
+
+
+#Ex3
+#Ler 2 valores inteiros e devolver como OUTPUT:
+#a) A soma dos 2 valores;
+#b) A diferença dos 2 valores;
+#c) O produto entre os 2 valores;
+#d) O quociente e o resto da divisão entre os 2 valores.
+escrev…
+[13:37, 02/08/2023] Henriqueta: ##Ficha de exercício nº 5
+
+#Ex1
+#Solicite uma frase ao utilizador:
+
+'''
+#a. Escreva a frase no ecrã;
+frase = input("Escreva uma frase: ")
+
+
+#b. Devolva o tamanho da frase.
+tam = len(frase)
+print(f"A frase contém {tam} carateres.")
+
+
+#c. Escreva a frase com letras maiúsculas, minúsculas e capitalizada.
+fmaiusc = frase.upper()
+print(f"Frase em maiúsculas: {fmaiusc}")
+#fminusc = frase.lower()
+print(f"Frase em minúsculas: {frase.lower()}")
+print(f"Frase em capitalizada: {frase.capitalize()}")
+
+
+#d. Verifique, através do output gerado, a diferença entre a função capitalize e a função title.
+print(f"Frase em capitalizada: {frase.capitalize()}")
+print(f"Frase em title: {frase.title()}")
+
+#frase = "Bom dia à sessão de Python"
+
+
+#e. Solicite ao utilizador 2 inteiros …
+[13:37, 02/08/2023] Henriqueta: #Ficha 6 22Julho2021
+
+#Ex1
+#Leia 10 valores do STDIN para um tuplo.
+'''
+tuplo = ()          #tuplo vazio
+
+for x in range(10):
+    valor = int(input("Insira uma valor: "))
+    tuplo = tuplo + (valor,)
+    
+print(tuplo)
+'''
+
+#Ex2
+#Faça um script que escreva os valores lidos para o tuplo anterior.
+'''
+print("E agora os elementos lidos... \n\n")         #o "\n\n" é apenas para aparecer pro utilizdor uma linha vazia (por cada \n).
+for elem in tuplo:
+    print(elem)
+
+#OU
+
+lim = len(tuplo)
+i = 0
+while i < lim:
+        print(tuplo[i])
+        i = i + 1
+'''
+
+#Ex3 cai no teste 24 julho
+#Crie uma função que dado um tuplo de valores inteiros positivos, devolva dois novos tuplos,
+#um de inteiros positivos pares e outro de inteiros positivos ímpares.
+'''
+def separa(tuplo)
+    tpar, timpar = (), ()
+
+    for elem in tuplo:
+        if elem%2 == 0:              #par
+            tpar = tpar + (elem,)
+        else:                        #impar
+            timpar = timpar + (elem,)
+
+
+
+
+tuplo = ()
+res = separa(tuplo)     #resp = (tuplo_pares, tuplo_impares)
+print("Pares: ", res[0])
+print("Ímpares: ", res[1])
+
+'''
+
+#EX4
+#Construa uma função que dado um tuplo, retorne a soma dos seus elementos.
+'''
+def somar(tuplo)
+    soma = 0
+
+    for elem in tuplo:
+        soma = soma + elem
+
+    return soma
+'''
+
+#Ex5 Já caiu no teste
+#Faça um script, recorrendo a funções, que dado um tuplo, retorne os elementos primos que aí existem.
+
+'''
+#algoritimo mais eficiente:
+
+def es_primo(elem):
+    #1 e o proprio elem são divisores
+    x = 2
+    lim = int(elem * (1/2))  #raiz quadra do numero + 1 -> inteiro
+    while x < lim:
+        if elem%x == 0      #x é um divisor
+            return False
+        x = x + 1
+
+    return True
+
+'''
+
+#OU uma versão menos eficiente mas menos complicada pra iniciante
+
+
+''' para a prova est verso
+def verificar(tuplo)
+    tprimo = ()         #armazenar os primos do tuplo inicial
+
+    #percorrer todos os elementos do tuplo
+    #fixado um elemento, verifica se este é primo
+    #se for primo concatena ao tprimo
+
+    for elem in tuplo:
+        #verificar se é primo
+        resposta = es_primo(elem)       #elem é primo? resposta: true ou false
+        if resposta == True:
+            tprimo = tprimo + (elem,)
+
+    return tprimo 
+        
+'''
+
+'''
+from randon import randint:
+tuplo = ()
+for x in range(10):
+    num = randint(2,30)
+    tuplo = tuplo + (num,)
+
+print(f"TUPLO: [tuplo]")
+
+res = verificar(tuplo)
+print(f"Os números primos que constam no tuplo são: {resp}")
+'''
